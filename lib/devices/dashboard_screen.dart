@@ -1,95 +1,159 @@
 import 'package:flutter/material.dart';
+import '../services/device_service.dart';
+import '../services/summary_service.dart';
 import '../themes/app_themes.dart';
 
-class DashboardScreen extends StatelessWidget {
+/// Écran « Accueil » : résumé de la maison.
+/// Données : services/summary_service.dart et services/device_service.dart.
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  HomeSummary? _summary;
+  List<Device> _devices = [];
+  bool _loading = true;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final results = await Future.wait([
+        SummaryService.instance.fetchSummary(),
+        DeviceService.instance.fetchDevices(),
+      ]);
+      _summary = results[0] as HomeSummary;
+      _devices = results[1] as List<Device>;
+    } on SummaryServiceException catch (e) {
+      _error = e.message;
+    } on DeviceServiceException catch (e) {
+      _error = e.message;
+    }
+    if (mounted) setState(() => _loading = false);
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        children: [
-          _buildHeader(),
-          const SizedBox(height: 24),
-
-          _buildWeatherCard(),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Aperçu rapide'),
-          const SizedBox(height: 12),
-          _buildQuickStatsRow(),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Appareils'),
-          const SizedBox(height: 12),
-          _buildDeviceGrid(),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Activité récente'),
-          const SizedBox(height: 12),
-          _buildActivityList(),
-          const SizedBox(height: 40),
-        ],
+      child: RefreshIndicator(
+        onRefresh: _load,
+        child: ListView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          children: [
+            _buildHeader(),
+            const SizedBox(height: 24),
+            ..._buildBody(),
+            const SizedBox(height: 40),
+          ],
+        ),
       ),
     );
   }
 
+  List<Widget> _buildBody() {
+    if (_loading && _summary == null) {
+      return const [
+        Padding(
+          padding: EdgeInsets.only(top: 60),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      ];
+    }
+    if (_error != null || _summary == null) {
+      return [
+        _info(_error ?? 'Aucune donnée'),
+        const SizedBox(height: 12),
+        OutlinedButton(onPressed: _load, child: const Text('Réessayer')),
+      ];
+    }
+    final s = _summary!;
+    return [
+      _buildWeatherCard(s),
+      const SizedBox(height: 24),
+      _sectionTitle('Aperçu rapide'),
+      const SizedBox(height: 12),
+      _buildQuickStatsRow(s),
+      const SizedBox(height: 24),
+      _sectionTitle('Appareils'),
+      const SizedBox(height: 12),
+      _buildDeviceGrid(),
+    ];
+  }
+
+  // ── En-tête ───────────────────────────────────────────────────────────
+
   Widget _buildHeader() {
+    final s = _summary;
+    final subtitle = s == null
+        ? 'Chargement…'
+        : '${s.devicesOnline}/${s.devicesTotal} appareils en ligne';
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Bonjour Aya 👋',
+            const Text(
+              'Bonjour 👋',
               style: TextStyle(
                 color: AppColors.textPrimary,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
-              'Votre maison est bien sécurisée',
-              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+              subtitle,
+              style: const TextStyle(
+                  color: AppColors.textSecondary, fontSize: 14),
             ),
           ],
         ),
-        Stack(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: const Icon(
-                Icons.notifications_none_rounded,
-                color: AppColors.textPrimary,
-                size: 22,
-              ),
-            ),
-            Positioned(
-              right: 8,
-              top: 8,
-              child: Container(
-                width: 8,
-                height: 8,
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryBlue,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ],
+        IconButton(
+          onPressed: _load,
+          icon: const Icon(Icons.refresh_rounded,
+              color: AppColors.primaryBlue, size: 20),
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
         ),
       ],
     );
   }
 
-  Widget _buildWeatherCard() {
+  Widget _info(String text) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+      ),
+    );
+  }
+
+  // ── Température ───────────────────────────────────────────────────────
+
+  Widget _buildWeatherCard(HomeSummary s) {
+    final temp =
+        s.temperature == null ? '--' : '${s.temperature!.toStringAsFixed(1)}°C';
+    final hum = s.humidity == null
+        ? 'Humidité --'
+        : 'Humidité ${s.humidity!.round()}%';
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -97,8 +161,8 @@ class DashboardScreen extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.primaryBlue.withOpacity(0.9),
-            AppColors.primaryBlue.withOpacity(0.5),
+            AppColors.primaryBlue.withValues(alpha: 0.9),
+            AppColors.primaryBlue.withValues(alpha: 0.5),
           ],
         ),
         borderRadius: BorderRadius.circular(22),
@@ -106,36 +170,34 @@ class DashboardScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text('Intérieur',
+                  style: TextStyle(color: Colors.white70, fontSize: 13)),
+              const SizedBox(height: 6),
               Text(
-                'Intérieur',
-                style: TextStyle(color: Colors.white70, fontSize: 13),
-              ),
-              SizedBox(height: 6),
-              Text(
-                '24°C',
-                style: TextStyle(
+                temp,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 34,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 4),
-              Text(
-                'Humidité 48%',
-                style: TextStyle(color: Colors.white70, fontSize: 13),
-              ),
+              const SizedBox(height: 4),
+              Text(hum,
+                  style:
+                      const TextStyle(color: Colors.white70, fontSize: 13)),
             ],
           ),
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(18),
             ),
-            child: const Icon(Icons.thermostat_rounded, color: Colors.white, size: 36),
+            child: const Icon(Icons.thermostat_rounded,
+                color: Colors.white, size: 36),
           ),
         ],
       ),
@@ -144,7 +206,7 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _sectionTitle(String text) {
     return Text(
-      text,
+      text.toUpperCase(),
       style: const TextStyle(
         color: AppColors.textSecondary,
         fontSize: 13,
@@ -154,13 +216,15 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickStatsRow() {
+  // ── Aperçu rapide ─────────────────────────────────────────────────────
+
+  Widget _buildQuickStatsRow(HomeSummary s) {
     return Row(
       children: [
         Expanded(
           child: _statCard(
             icon: Icons.lightbulb_outline_rounded,
-            value: '3/5',
+            value: '${s.lightsOn}/${s.lightsTotal}',
             label: 'Lumières allumées',
             color: AppColors.primaryBlue,
           ),
@@ -168,10 +232,12 @@ class DashboardScreen extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: _statCard(
-            icon: Icons.lock_outline_rounded,
-            value: 'OK',
-            label: 'Portes verrouillées',
-            color: AppColors.success,
+            icon: s.doorsLocked
+                ? Icons.lock_outline_rounded
+                : Icons.lock_open_rounded,
+            value: s.doorsLocked ? 'OK' : 'Ouverte',
+            label: s.doorsLocked ? 'Portes verrouillées' : 'Porte déverrouillée',
+            color: s.doorsLocked ? AppColors.success : AppColors.warning,
           ),
         ),
       ],
@@ -206,21 +272,35 @@ class DashboardScreen extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             label,
-            style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+            style:
+                const TextStyle(color: AppColors.textSecondary, fontSize: 12),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildDeviceGrid() {
-    final devices = [
-      _DeviceStatus(icon: Icons.lightbulb_rounded, name: 'Salon', isOn: true),
-      _DeviceStatus(icon: Icons.mode_fan_off_rounded, name: 'Ventilateur', isOn: false),
-      _DeviceStatus(icon: Icons.sensor_door_rounded, name: 'Porte', isOn: true),
-      _DeviceStatus(icon: Icons.videocam_rounded, name: 'Caméra', isOn: true),
-    ];
+  // ── Appareils ─────────────────────────────────────────────────────────
 
+  IconData _iconFor(Device d) {
+    switch (d.type) {
+      case 'light':
+        return Icons.lightbulb_rounded;
+      case 'fan':
+        return Icons.mode_fan_off_rounded;
+      case 'door':
+        return Icons.sensor_door_rounded;
+      case 'servo':
+        return Icons.settings_input_component_rounded;
+      default:
+        return Icons.sensors_rounded;
+    }
+  }
+
+  Widget _buildDeviceGrid() {
+    if (_devices.isEmpty) {
+      return _info("Aucun appareil. Ajoutez-en depuis l'onglet Profil.");
+    }
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -230,9 +310,10 @@ class DashboardScreen extends StatelessWidget {
         crossAxisSpacing: 12,
         childAspectRatio: 1.4,
       ),
-      itemCount: devices.length,
+      itemCount: _devices.length,
       itemBuilder: (context, index) {
-        final d = devices[index];
+        final d = _devices[index];
+        final active = d.online && (d.type == 'door' ? d.isLocked : d.isOn);
         return Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
@@ -249,22 +330,27 @@ class DashboardScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: d.isOn
-                          ? AppColors.primaryBlue.withOpacity(0.15)
+                      color: active
+                          ? AppColors.primaryBlue.withValues(alpha: 0.15)
                           : AppColors.surfaceLight,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(
-                      d.icon,
-                      color: d.isOn ? AppColors.primaryBlue : AppColors.textSecondary,
+                      _iconFor(d),
+                      color: active
+                          ? AppColors.primaryBlue
+                          : AppColors.textSecondary,
                       size: 18,
                     ),
                   ),
+                  // Point vert = appareil en ligne
                   Container(
                     width: 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: d.isOn ? AppColors.success : AppColors.textSecondary,
+                      color: d.online
+                          ? AppColors.success
+                          : AppColors.textSecondary,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -272,6 +358,8 @@ class DashboardScreen extends StatelessWidget {
               ),
               Text(
                 d.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: AppColors.textPrimary,
                   fontSize: 14,
@@ -284,57 +372,4 @@ class DashboardScreen extends StatelessWidget {
       },
     );
   }
-
-  Widget _buildActivityList() {
-    final activities = [
-      _Activity(icon: Icons.lock_outline_rounded, text: 'Porte verrouillée', time: 'Il y a 12 min'),
-      _Activity(icon: Icons.lightbulb_outline_rounded, text: 'Lumière salon allumée', time: 'Il y a 34 min'),
-      _Activity(icon: Icons.sensor_occupied_rounded, text: 'Mouvement détecté - Entrée', time: 'Il y a 1h'),
-    ];
-
-    return Column(
-      children: activities
-          .map(
-            (a) => Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.all(14),
-              decoration: BoxDecoration(
-                color: AppColors.surface,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                children: [
-                  Icon(a.icon, color: AppColors.textSecondary, size: 18),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      a.text,
-                      style: const TextStyle(color: AppColors.textPrimary, fontSize: 13),
-                    ),
-                  ),
-                  Text(
-                    a.time,
-                    style: const TextStyle(color: AppColors.textSecondary, fontSize: 11),
-                  ),
-                ],
-              ),
-            ),
-          )
-          .toList(),
-    );
-  }
-}
-
-class _DeviceStatus {
-  final IconData icon;
-  final String name;
-  final bool isOn;
-  _DeviceStatus({required this.icon, required this.name, required this.isOn});
-}
-
-class _Activity {
-  final IconData icon;
-  final String text;
-  final String time;
-  _Activity({required this.icon, required this.text, required this.time});
 }

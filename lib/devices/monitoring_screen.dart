@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import '../services/device_service.dart';
+import '../services/sensor_service.dart';
 import '../themes/app_themes.dart';
 
-/// Écran de monitoring environnemental — historique température/humidité
-/// depuis tes capteurs DHT22.
-///
-/// Utilise le package `fl_chart` pour les graphiques.
-/// Ajoute dans ton pubspec.yaml :
-///   dependencies:
-///     fl_chart: ^0.68.0
+/// Écran « Monitoring » : courbes température / humidité.
+/// Données : services/sensor_service.dart et services/device_service.dart.
 class MonitoringScreen extends StatefulWidget {
   const MonitoringScreen({super.key});
 
@@ -16,73 +13,155 @@ class MonitoringScreen extends StatefulWidget {
 }
 
 class _MonitoringScreenState extends State<MonitoringScreen> {
+  static const _humidityColor = Color(0xFF4FC3F7);
+
   String _selectedPeriod = '24h';
   final List<String> _periods = ['24h', '7j', '30j'];
 
-  // Données statiques d'exemple — à remplacer par ton API Django
-  // (GET /api/sensors/history/?period=24h)
-  final List<double> _temperatureData = [22, 22.5, 23, 24, 25, 24.5, 23.5, 23];
-  final List<double> _humidityData = [45, 46, 44, 42, 40, 43, 47, 48];
-  final List<String> _timeLabels = ['00h', '03h', '06h', '09h', '12h', '15h', '18h', '21h'];
+  List<SensorPoint> _temps = []; // points qui ont une température
+  List<SensorPoint> _hums = []; // points qui ont une humidité
+  List<Device> _sensors = [];
+  bool _loading = true;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    try {
+      final results = await Future.wait([
+        SensorService.instance.fetchHistory(_selectedPeriod),
+        DeviceService.instance.fetchDevices(),
+      ]);
+      final points = results[0] as List<SensorPoint>;
+      _temps = points.where((p) => p.temperature != null).toList();
+      _hums = points.where((p) => p.humidity != null).toList();
+      _sensors =
+          (results[1] as List<Device>).where((d) => d.type == 'sensor').toList();
+    } on SensorServiceException catch (e) {
+      _error = e.message;
+    } on DeviceServiceException catch (e) {
+      _error = e.message;
+    }
+    if (mounted) setState(() => _loading = false);
+  }
+
+  void _selectPeriod(String p) {
+    if (p == _selectedPeriod) return;
+    setState(() => _selectedPeriod = p);
+    _load();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        children: [
-          _buildHeader(),
-          const SizedBox(height: 20),
+      child: RefreshIndicator(
+        onRefresh: _load,
+        child: ListView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          children: [
+            _buildHeader(),
+            const SizedBox(height: 20),
+            _buildPeriodSelector(),
+            const SizedBox(height: 24),
+            ..._buildBody(),
+            const SizedBox(height: 40),
+          ],
+        ),
+      ),
+    );
+  }
 
-          _buildPeriodSelector(),
-          const SizedBox(height: 24),
+  List<Widget> _buildBody() {
+    if (_loading) {
+      return const [
+        Padding(
+          padding: EdgeInsets.only(top: 60),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      ];
+    }
+    if (_error != null) {
+      return [
+        _info(_error!),
+        const SizedBox(height: 12),
+        OutlinedButton(onPressed: _load, child: const Text('Réessayer')),
+      ];
+    }
+    return [
+      _buildCurrentStatsRow(),
+      const SizedBox(height: 24),
+      _sectionTitle('Température (°C)'),
+      const SizedBox(height: 12),
+      _buildChartCard(
+        points: _temps,
+        value: (p) => p.temperature!,
+        color: AppColors.primaryBlue,
+      ),
+      const SizedBox(height: 24),
+      _sectionTitle('Humidité (%)'),
+      const SizedBox(height: 12),
+      _buildChartCard(
+        points: _hums,
+        value: (p) => p.humidity!,
+        color: _humidityColor,
+      ),
+      const SizedBox(height: 24),
+      _sectionTitle('Capteurs'),
+      const SizedBox(height: 12),
+      _buildSensorList(),
+    ];
+  }
 
-          _buildCurrentStatsRow(),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Température (°C)'),
-          const SizedBox(height: 12),
-          _buildChartCard(
-            data: _temperatureData,
-            color: AppColors.primaryBlue,
-            unit: '°C',
-          ),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Humidité (%)'),
-          const SizedBox(height: 12),
-          _buildChartCard(
-            data: _humidityData,
-            color: const Color(0xFF4FC3F7),
-            unit: '%',
-          ),
-          const SizedBox(height: 24),
-
-          _sectionTitle('Capteurs actifs'),
-          const SizedBox(height: 12),
-          _buildSensorList(),
-          const SizedBox(height: 40),
-        ],
+  Widget _info(String text) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
       ),
     );
   }
 
   Widget _buildHeader() {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          'Monitoring',
-          style: TextStyle(
-            color: AppColors.textPrimary,
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-          ),
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Monitoring',
+              style: TextStyle(
+                color: AppColors.textPrimary,
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 4),
+            Text(
+              'Historique de vos capteurs',
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+            ),
+          ],
         ),
-        SizedBox(height: 4),
-        Text(
-          'Historique de vos capteurs',
-          style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+        IconButton(
+          onPressed: _load,
+          icon: const Icon(Icons.refresh_rounded,
+              color: AppColors.primaryBlue, size: 20),
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
         ),
       ],
     );
@@ -95,7 +174,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
         return Padding(
           padding: const EdgeInsets.only(right: 10),
           child: GestureDetector(
-            onTap: () => setState(() => _selectedPeriod = period),
+            onTap: () => _selectPeriod(period),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 9),
               decoration: BoxDecoration(
@@ -117,14 +196,18 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
     );
   }
 
+  // ── Valeurs actuelles ─────────────────────────────────────────────────
+
   Widget _buildCurrentStatsRow() {
+    final t = _temps.isEmpty ? '--' : '${_temps.last.temperature!.toStringAsFixed(1)}°C';
+    final h = _hums.isEmpty ? '--' : '${_hums.last.humidity!.round()}%';
     return Row(
       children: [
         Expanded(
           child: _liveStatCard(
             icon: Icons.thermostat_rounded,
-            value: '${_temperatureData.last}°C',
-            label: 'Actuellement',
+            value: t,
+            label: 'Dernière température',
             color: AppColors.primaryBlue,
           ),
         ),
@@ -132,9 +215,9 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
         Expanded(
           child: _liveStatCard(
             icon: Icons.water_drop_rounded,
-            value: '${_humidityData.last.round()}%',
-            label: 'Humidité',
-            color: const Color(0xFF4FC3F7),
+            value: h,
+            label: 'Dernière humidité',
+            color: _humidityColor,
           ),
         ),
       ],
@@ -158,7 +241,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.15),
+              color: color.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: color, size: 20),
@@ -178,7 +261,8 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
                 ),
                 Text(
                   label,
-                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 11),
+                  style: const TextStyle(
+                      color: AppColors.textSecondary, fontSize: 11),
                 ),
               ],
             ),
@@ -190,7 +274,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
 
   Widget _sectionTitle(String text) {
     return Text(
-      text,
+      text.toUpperCase(),
       style: const TextStyle(
         color: AppColors.textSecondary,
         fontSize: 13,
@@ -200,14 +284,31 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
     );
   }
 
-  /// Graphique en courbe simple dessiné à la main (CustomPainter),
-  /// sans dépendance externe. Si tu préfères fl_chart pour plus
-  /// d'options (tooltips, zoom...), remplace ce widget par un LineChart.
+  // ── Graphiques ────────────────────────────────────────────────────────
+
+  String _label(DateTime t) {
+    String two(int n) => n.toString().padLeft(2, '0');
+    return _selectedPeriod == '24h'
+        ? '${two(t.hour)}h${two(t.minute)}'
+        : '${two(t.day)}/${two(t.month)}';
+  }
+
   Widget _buildChartCard({
-    required List<double> data,
+    required List<SensorPoint> points,
+    required double Function(SensorPoint) value,
     required Color color,
-    required String unit,
   }) {
+    if (points.isEmpty) {
+      return _info('Aucune mesure sur cette période.');
+    }
+
+    // 5 repères de temps répartis du premier au dernier point
+    final labels = <String>[];
+    for (var i = 0; i < 5; i++) {
+      final idx = ((points.length - 1) * i / 4).round();
+      labels.add(_label(points[idx].time));
+    }
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -221,19 +322,20 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
             height: 140,
             width: double.infinity,
             child: CustomPaint(
-              painter: _LineChartPainter(data: data, color: color),
+              painter: _LineChartPainter(
+                data: points.map(value).toList(),
+                color: color,
+              ),
             ),
           ),
           const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: _timeLabels
+            children: labels
                 .map((t) => Text(
                       t,
                       style: const TextStyle(
-                        color: AppColors.textSecondary,
-                        fontSize: 10,
-                      ),
+                          color: AppColors.textSecondary, fontSize: 10),
                     ))
                 .toList(),
           ),
@@ -242,15 +344,14 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
     );
   }
 
-  Widget _buildSensorList() {
-    final sensors = [
-      _SensorInfo(name: 'DHT22 - Salon', status: 'En ligne', isOnline: true),
-      _SensorInfo(name: 'DHT22 - Chambre', status: 'En ligne', isOnline: true),
-      _SensorInfo(name: 'PIR - Entrée', status: 'Hors ligne', isOnline: false),
-    ];
+  // ── Liste des capteurs ────────────────────────────────────────────────
 
+  Widget _buildSensorList() {
+    if (_sensors.isEmpty) {
+      return _info('Aucun capteur enregistré pour le moment.');
+    }
     return Column(
-      children: sensors
+      children: _sensors
           .map(
             (s) => Container(
               margin: const EdgeInsets.only(bottom: 10),
@@ -265,7 +366,9 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
                     width: 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: s.isOnline ? AppColors.success : AppColors.textSecondary,
+                      color: s.online
+                          ? AppColors.success
+                          : AppColors.textSecondary,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -273,13 +376,16 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
                   Expanded(
                     child: Text(
                       s.name,
-                      style: const TextStyle(color: AppColors.textPrimary, fontSize: 13),
+                      style: const TextStyle(
+                          color: AppColors.textPrimary, fontSize: 13),
                     ),
                   ),
                   Text(
-                    s.status,
+                    s.online ? 'En ligne' : 'Hors ligne',
                     style: TextStyle(
-                      color: s.isOnline ? AppColors.success : AppColors.textSecondary,
+                      color: s.online
+                          ? AppColors.success
+                          : AppColors.textSecondary,
                       fontSize: 12,
                     ),
                   ),
@@ -292,15 +398,7 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
   }
 }
 
-class _SensorInfo {
-  final String name;
-  final String status;
-  final bool isOnline;
-  _SensorInfo({required this.name, required this.status, required this.isOnline});
-}
-
 /// Dessine une courbe simple à partir d'une liste de valeurs.
-/// Léger, sans dépendance — suffisant pour un premier rendu visuel.
 class _LineChartPainter extends CustomPainter {
   final List<double> data;
   final Color color;
@@ -325,18 +423,25 @@ class _LineChartPainter extends CustomPainter {
       ..shader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [color.withOpacity(0.25), color.withOpacity(0.0)],
+        colors: [color.withValues(alpha: 0.25), color.withValues(alpha: 0.0)],
       ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+
+    // Un seul point : on le met au milieu (évite une division par zéro)
+    final stepX = data.length > 1 ? size.width / (data.length - 1) : 0.0;
+    final showDots = data.length <= 30;
+
+    double xOf(int i) => data.length > 1 ? stepX * i : size.width / 2;
+    double yOf(int i) {
+      final normalized = (data[i] - minVal) / range;
+      return size.height - (normalized * size.height * 0.85) - size.height * 0.1;
+    }
 
     final path = Path();
     final fillPath = Path();
-    final stepX = size.width / (data.length - 1);
 
     for (int i = 0; i < data.length; i++) {
-      final x = stepX * i;
-      final normalized = (data[i] - minVal) / range;
-      final y = size.height - (normalized * size.height * 0.85) - size.height * 0.1;
-
+      final x = xOf(i);
+      final y = yOf(i);
       if (i == 0) {
         path.moveTo(x, y);
         fillPath.moveTo(x, size.height);
@@ -345,12 +450,10 @@ class _LineChartPainter extends CustomPainter {
         path.lineTo(x, y);
         fillPath.lineTo(x, y);
       }
-
-      // Point sur la courbe
-      canvas.drawCircle(Offset(x, y), 3, Paint()..color = color);
+      if (showDots) canvas.drawCircle(Offset(x, y), 3, Paint()..color = color);
     }
 
-    fillPath.lineTo(size.width, size.height);
+    fillPath.lineTo(xOf(data.length - 1), size.height);
     fillPath.close();
 
     canvas.drawPath(fillPath, fillPaint);
@@ -362,4 +465,3 @@ class _LineChartPainter extends CustomPainter {
     return oldDelegate.data != data || oldDelegate.color != color;
   }
 }
-

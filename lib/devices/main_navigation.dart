@@ -1,14 +1,10 @@
-
-
-
 import 'package:flutter/material.dart';
 import '../themes/app_themes.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'devices-control-screen.dart';
+import 'devices_control_screen.dart';
 import 'dashboard_screen.dart';
 import 'monitoring_screen.dart';
 import 'profile_screen.dart';
-
 
 /// Écran conteneur avec navigation mobile (bottom nav bar).
 /// C'est ici que tu passes après le Sign In réussi.
@@ -30,10 +26,8 @@ class _MainNavigationState extends State<MainNavigation> {
     DashboardScreen(),
     DeviceControlScreen(),
     MonitoringScreen(),
-
     _PlaceholderScreen(title: 'Automatisations', icon: Icons.auto_awesome_rounded),
     ProfileScreen(),
-    // _PlaceholderScreen(title: 'Profil', icon: Icons.person_rounded),
   ];
 
   final List<NavItem> _navItems = const [

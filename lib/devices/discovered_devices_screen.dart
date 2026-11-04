@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import '../services/device_discovery_service.dart';
+import '../services/device_service.dart';
 import '../themes/app_themes.dart';
 
 /// Écran « Appareils détectés » : affiche les appareils trouvés
@@ -16,9 +15,6 @@ class DiscoveredDevicesScreen extends StatefulWidget {
 
 class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
     with SingleTickerProviderStateMixin {
-  // Adresse de ton serveur — adapte l'IP si besoin
-  static const String _apiBaseUrl = 'http://192.168.137.35:8000';
-
   final DeviceDiscoveryService _service = DeviceDiscoveryService();
   late final AnimationController _radar;
   StreamSubscription<List<DiscoveredDevice>>? _sub;
@@ -52,23 +48,12 @@ class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
   Future<void> _addDevice(DiscoveredDevice d) async {
     setState(() => _adding.add(d.id));
     try {
-      // TODO: ajouter l'en-tête Authorization avec le token de connexion
-      final response = await http.post(
-        Uri.parse('$_apiBaseUrl/api/devices/'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'name': d.name,
-          'device_type': d.type,
-          'mqtt_topic': 'home/${d.id}/cmd',
-        }),
-      );
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        setState(() => _added.add(d.id));
-      } else {
-        _showMessage("Impossible d'ajouter l'appareil");
-      }
-    } catch (_) {
-      _showMessage('Erreur de connexion au serveur');
+      await DeviceService.instance
+          .addDevice(uid: d.id, name: d.name, type: d.type);
+      if (mounted) setState(() => _added.add(d.id));
+      _showMessage('${d.name} ajouté');
+    } on DeviceServiceException catch (e) {
+      _showMessage(e.message);
     }
     if (mounted) setState(() => _adding.remove(d.id));
   }
