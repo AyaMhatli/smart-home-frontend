@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 import 'auth_service.dart';
+import 'home_session.dart';
 
 /// Une mesure envoyée par un capteur (température et/ou humidité).
 class SensorPoint {
@@ -34,8 +35,10 @@ class SensorService {
   /// period : '24h', '7j' ou '30j'
   Future<List<SensorPoint>> fetchHistory(String period) async {
     try {
-      final res =
-          await AuthService.instance.get('/api/sensors/history/?period=$period');
+      await HomeSession.instance.ensureLoaded();
+      final home = HomeSession.instance.currentId;
+      final res = await AuthService.instance.get(
+          '/api/sensors/history/?period=$period${home == null ? '' : '&home=$home'}');
       if (res.statusCode != 200) {
         throw SensorServiceException('Erreur du serveur (${res.statusCode})');
       }

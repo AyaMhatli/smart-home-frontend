@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../services/device_service.dart';
 import '../services/sensor_service.dart';
+import '../services/home_session.dart';
 import '../themes/app_themes.dart';
+import '../widgets/home_switcher.dart';
 
 /// Écran « Monitoring » : courbes température / humidité.
 /// Données : services/sensor_service.dart et services/device_service.dart.
@@ -27,7 +29,14 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
   @override
   void initState() {
     super.initState();
+    HomeSession.instance.changes.addListener(_load);
     _load();
+  }
+
+  @override
+  void dispose() {
+    HomeSession.instance.changes.removeListener(_load);
+    super.dispose();
   }
 
   Future<void> _load() async {
@@ -142,6 +151,8 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
         const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            HomeSwitcher(),
+            SizedBox(height: 10),
             Text(
               'Monitoring',
               style: TextStyle(

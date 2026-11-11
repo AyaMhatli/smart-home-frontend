@@ -11,7 +11,8 @@ class AuthService {
   static final AuthService instance = AuthService._();
 
   // Adresse de ton serveur sur la Pi — adapte l'IP si elle change
-  static const String baseUrl = 'http://192.168.43.140:8000';
+  // static const String baseUrl = 'http://192.168.43.27:8000';
+  static const String baseUrl = 'http://0.0.0.0:8000';
 
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
   static const _kAccess = 'access_token';

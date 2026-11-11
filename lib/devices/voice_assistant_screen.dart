@@ -37,7 +37,7 @@ class _VoiceAssistantScreenState extends State<VoiceAssistantScreen>
   late AnimationController _pulseController;
 
   // Adresse de ton API Django sur la Pi — adapte l'IP si besoin
-  static const String _apiBaseUrl = 'http://192.168.43.140:8000';
+  static const String _apiBaseUrl = 'http://192.168.43.27:8000';
 
   @override
   void initState() {

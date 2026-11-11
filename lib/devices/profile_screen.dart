@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 import '../services/device_service.dart';
 import '../services/profile_service.dart';
+import '../services/home_session.dart';
 import '../themes/app_themes.dart';
+import '../widgets/home_switcher.dart';
 import 'discovered_devices_screen.dart';
 import '../devices/auth/sign_in_screen.dart';
 
@@ -24,7 +26,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
+    HomeSession.instance.changes.addListener(_load);
     _load();
+  }
+
+  @override
+  void dispose() {
+    HomeSession.instance.changes.removeListener(_load);
+    super.dispose();
   }
 
   Future<void> _load() async {
@@ -58,6 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _logout() async {
     await AuthService.instance.logout();
+    await HomeSession.instance.reset();
     if (!mounted) return;
     Navigator.pushAndRemoveUntil(
       context,
@@ -143,12 +153,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final p = _profile!;
     return [
       _buildUserHeader(p),
-      const SizedBox(height: 20),
+      const SizedBox(height: 16),
+      const Align(alignment: Alignment.centerLeft, child: HomeSwitcher()),
+      const SizedBox(height: 16),
       Row(
         children: [
-          Expanded(child: _statCard('${p.devicesTotal}', 'Appareils')),
+          Expanded(child: _statCard('${_devices.length}', 'Appareils')),
           const SizedBox(width: 12),
-          Expanded(child: _statCard('${p.devicesOnline}', 'En ligne')),
+          Expanded(
+              child: _statCard(
+                  '${_devices.where((d) => d.online).length}', 'En ligne')),
         ],
       ),
       const SizedBox(height: 24),

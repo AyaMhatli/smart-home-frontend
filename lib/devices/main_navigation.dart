@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../themes/app_themes.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'devices_control_screen.dart';
+import 'device_control_screen.dart';
 import 'dashboard_screen.dart';
 import 'monitoring_screen.dart';
 import 'profile_screen.dart';
@@ -26,7 +26,7 @@ class _MainNavigationState extends State<MainNavigation> {
     DashboardScreen(),
     DeviceControlScreen(),
     MonitoringScreen(),
-    _PlaceholderScreen(title: 'Automatisations', icon: Icons.auto_awesome_rounded),
+    // _PlaceholderScreen(title: 'Automatisations', icon: Icons.auto_awesome_rounded),
     ProfileScreen(),
   ];
 
@@ -34,7 +34,7 @@ class _MainNavigationState extends State<MainNavigation> {
     NavItem(icon: Icons.home_rounded, label: 'Accueil'),
     NavItem(icon: Icons.tune_rounded, label: 'Contrôle'),
     NavItem(icon: Icons.thermostat_rounded, label: 'Monitoring'),
-    NavItem(icon: Icons.auto_awesome_rounded, label: 'Auto'),
+    // NavItem(icon: Icons.auto_awesome_rounded, label: 'Auto'),
     NavItem(icon: Icons.person_rounded, label: 'Profil'),
   ];
 

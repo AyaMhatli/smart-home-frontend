@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 import 'auth_service.dart';
+import 'home_session.dart';
 
 class HomeSummary {
   final double? temperature;
@@ -48,7 +49,10 @@ class SummaryService {
 
   Future<HomeSummary> fetchSummary() async {
     try {
-      final res = await AuthService.instance.get('/api/summary/');
+      await HomeSession.instance.ensureLoaded();
+      final home = HomeSession.instance.currentId;
+      final res = await AuthService.instance
+          .get(home == null ? '/api/summary/' : '/api/summary/?home=$home');
       if (res.statusCode != 200) {
         throw SummaryServiceException('Erreur du serveur (${res.statusCode})');
       }

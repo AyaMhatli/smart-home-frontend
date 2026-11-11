@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../services/device_discovery_service.dart';
 import '../services/device_service.dart';
+import '../services/network_service.dart';
+import 'add_device_manual_screen.dart';
 import '../themes/app_themes.dart';
 
 /// Écran « Appareils détectés » : affiche les appareils trouvés
@@ -24,6 +26,12 @@ class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
   final Set<String> _added = {};
   final Set<String> _adding = {};
   bool _searching = true;
+
+  // Scan du réseau par le serveur
+  List<NetworkHost> _hosts = [];
+  bool _scanning = false;
+  bool _scanned = false;
+  String? _scanError;
 
   @override
   void initState() {
@@ -56,6 +64,45 @@ class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
       _showMessage(e.message);
     }
     if (mounted) setState(() => _adding.remove(d.id));
+  }
+
+  Future<void> _scanNetwork() async {
+    setState(() {
+      _scanning = true;
+      _scanError = null;
+    });
+    try {
+      _hosts = await NetworkService.instance.scan();
+      _scanned = true;
+    } on NetworkServiceException catch (e) {
+      _scanError = e.message;
+    }
+    if (mounted) setState(() => _scanning = false);
+  }
+
+  Future<void> _addHost(NetworkHost h) async {
+    setState(() => _adding.add(h.ip));
+    try {
+      await DeviceService.instance.addManual(
+        name: h.name.isNotEmpty ? h.name : 'Appareil ${h.ip}',
+        type: DeviceService.typeForKind(h.kind),
+        integration: h.kind,
+        host: h.ip,
+      );
+      if (mounted) setState(() => _added.add(h.ip));
+      _showMessage('Appareil ajouté');
+    } on DeviceServiceException catch (e) {
+      _showMessage(e.message);
+    }
+    if (mounted) setState(() => _adding.remove(h.ip));
+  }
+
+  Future<void> _openManual() async {
+    final added = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(builder: (_) => const AddDeviceManualScreen()),
+    );
+    if (added == true) _showMessage('Appareil ajouté');
   }
 
   void _showMessage(String text) {
@@ -114,7 +161,7 @@ class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
                 ),
               ),
               const SizedBox(height: 12),
-              Expanded(child: _found.isEmpty ? _buildEmpty() : _buildList()),
+              Expanded(child: _buildContent()),
               SizedBox(
                 width: double.infinity,
                 height: 54,
@@ -208,69 +255,285 @@ class _DiscoveredDevicesScreenState extends State<DiscoveredDevicesScreen>
     );
   }
 
-  Widget _buildList() {
-    return ListView.separated(
-      itemCount: _found.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 10),
-      itemBuilder: (_, i) {
-        final d = _found[i];
-        final added = _added.contains(d.id);
-        final adding = _adding.contains(d.id);
-        return Container(
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: AppColors.primaryBlue.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(_iconFor(d.type), color: AppColors.primaryBlue, size: 22),
+  Widget _buildContent() {
+    return ListView(
+      children: [
+        if (_found.isEmpty)
+          SizedBox(height: 90, child: _buildEmpty())
+        else
+          for (final d in _found) ...[
+            _deviceCard(d),
+            const SizedBox(height: 10),
+          ],
+        const SizedBox(height: 14),
+        SizedBox(
+          width: double.infinity,
+          height: 48,
+          child: OutlinedButton.icon(
+            onPressed: _openManual,
+            icon: const Icon(Icons.add_rounded, color: AppColors.primaryBlue),
+            label: const Text(
+              'Ajouter manuellement',
+              style: TextStyle(
+                color: AppColors.primaryBlue,
+                fontWeight: FontWeight.w600,
               ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      d.name,
-                      style: const TextStyle(
-                        color: AppColors.textPrimary,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      d.ip,
-                      style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-              added
-                  ? const Icon(Icons.check_circle_rounded, color: AppColors.success)
-                  : ElevatedButton(
-                      onPressed: adding ? null : () => _addDevice(d),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryBlue,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      ),
-                      child: adding
-                          ? const SizedBox(
-                              width: 16,
-                              height: 16,
-                              child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                            )
-                          : const Text('Ajouter', style: TextStyle(color: Colors.white)),
-                    ),
-            ],
+            ),
+            style: OutlinedButton.styleFrom(
+              side: const BorderSide(color: AppColors.primaryBlue),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            ),
           ),
-        );
-      },
+        ),
+        const SizedBox(height: 24),
+        _buildNetworkSection(),
+        const SizedBox(height: 16),
+      ],
+    );
+  }
+
+  /// Appareil qui s'est annoncé lui-même : on sait le commander.
+  Widget _deviceCard(DiscoveredDevice d) {
+    final added = _added.contains(d.id);
+    final adding = _adding.contains(d.id);
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.primaryBlue.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(_iconFor(d.type), color: AppColors.primaryBlue, size: 22),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  d.name,
+                  style: const TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  d.ip,
+                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                ),
+                const SizedBox(height: 2),
+                const Text(
+                  'Commandable',
+                  style: TextStyle(
+                    color: AppColors.success,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          added
+              ? const Icon(Icons.check_circle_rounded, color: AppColors.success)
+              : ElevatedButton(
+                  onPressed: adding ? null : () => _addDevice(d),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primaryBlue,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                  child: adding
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                        )
+                      : const Text('Ajouter', style: TextStyle(color: Colors.white)),
+                ),
+        ],
+      ),
+    );
+  }
+
+  // ── Autres appareils du réseau (vus par le serveur) ──────────────────
+
+  Widget _buildNetworkSection() {
+    final foundIps = _found.map((d) => d.ip).toSet();
+    final others = _hosts.where((h) => !foundIps.contains(h.ip)).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'AUTRES APPAREILS SUR LE RÉSEAU',
+          style: TextStyle(
+            color: AppColors.textSecondary,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.5,
+          ),
+        ),
+        const SizedBox(height: 4),
+        const Text(
+          'Vus par le serveur, mais pas forcément pilotables.',
+          style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: double.infinity,
+          height: 48,
+          child: OutlinedButton(
+            onPressed: _scanning ? null : _scanNetwork,
+            style: OutlinedButton.styleFrom(
+              side: const BorderSide(color: AppColors.surfaceLight),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            ),
+            child: _scanning
+                ? const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 16,
+                        height: 16,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                      SizedBox(width: 10),
+                      Text('Scan en cours…',
+                          style: TextStyle(color: AppColors.textSecondary)),
+                    ],
+                  )
+                : Text(
+                    _scanned ? 'Scanner à nouveau' : 'Scanner le réseau',
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+          ),
+        ),
+        const SizedBox(height: 12),
+        if (_scanError != null)
+          _note(_scanError!)
+        else if (_scanned && others.isEmpty)
+          _note('Aucun autre appareil trouvé.')
+        else
+          for (final h in others) ...[
+            _hostCard(h),
+            const SizedBox(height: 10),
+          ],
+      ],
+    );
+  }
+
+  Widget _note(String text) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(16)),
+      child: Text(
+        text,
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
+      ),
+    );
+  }
+
+  /// Appareil vu sur le réseau. Reconnu (Samsung, WLED) : on peut l'ajouter.
+  /// Sinon : détecté seulement.
+  Widget _hostCard(NetworkHost h) {
+    final title = h.name.isNotEmpty
+        ? h.name
+        : (h.vendor.isNotEmpty
+            ? h.vendor
+            : (h.privateMac ? 'Appareil (adresse privée)' : 'Appareil inconnu'));
+    final ok = h.controllable;
+    final added = _added.contains(h.ip);
+    final adding = _adding.contains(h.ip);
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: ok
+                  ? AppColors.primaryBlue.withValues(alpha: 0.15)
+                  : AppColors.surfaceLight,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(
+              (h.kind == 'samsung_tv' || h.kind == 'roku')
+                  ? Icons.tv_rounded
+                  : (ok ? Icons.lightbulb_outline_rounded : Icons.devices_other_rounded),
+              color: ok ? AppColors.primaryBlue : AppColors.textSecondary,
+              size: 22,
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    color: AppColors.textPrimary,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  h.ip,
+                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  ok ? 'Commandable' : 'Détecté seulement',
+                  style: TextStyle(
+                    color: ok ? AppColors.success : AppColors.warning,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                if (!ok) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    h.hint,
+                    style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          if (ok)
+            added
+                ? const Icon(Icons.check_circle_rounded, color: AppColors.success)
+                : ElevatedButton(
+                    onPressed: adding ? null : () => _addHost(h),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primaryBlue,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    child: adding
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                          )
+                        : const Text('Ajouter', style: TextStyle(color: Colors.white)),
+                  ),
+        ],
+      ),
     );
   }
 }

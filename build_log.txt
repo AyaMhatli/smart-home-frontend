@@ -1,0 +1,1619 @@
+﻿Launching lib\main.dart on Edge in debug mode...
+Waiting for connection from debug service on Edge...            
+flutter : lib/devices//auth/sign_in_screen.dart:2:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+Au caractère Ligne:1 : 1
++ flutter run -d edge 2>&1 | Out-File -Encoding utf8 build_log.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (lib/devices//au...est introuvable:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+import '../../themes/app_themes.dart'; // AppColors, AppRadius, AppSpacing centralis├®s
+       ^
+lib/devices//auth/sign_in_screen.dart:3:8: Error: Error when reading 'lib/devices/services/auth_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../../services/auth_service.dart';
+       ^
+lib/devices//main_navigation.dart:2:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//auth/sign_up_screen.dart:2:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../../themes/app_themes.dart'; // AppColors, AppRadius, AppSpacing centralis├®s
+       ^
+lib/devices//auth/sign_up_screen.dart:3:8: Error: Error when reading 'lib/devices/services/auth_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../../services/auth_service.dart';
+       ^
+lib/devices//main_navigation.dart:3:8: Error: Error when reading 'lib/devices/widgets/bottom_nav_bar.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../widgets/bottom_nav_bar.dart';
+       ^
+lib/devices//device_control_screen.dart:4:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//dashboard_screen.dart:5:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//monitoring_screen.dart:5:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//profile_screen.dart:2:8: Error: Error when reading 'lib/devices/services/auth_service.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../services/auth_service.dart';
+       ^
+lib/devices//profile_screen.dart:6:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//device_control_screen.dart:2:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//dashboard_screen.dart:2:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//monitoring_screen.dart:2:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//profile_screen.dart:3:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//device_control_screen.dart:3:8: Error: Error when reading 'lib/devices/services/home_session.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/home_session.dart';
+       ^
+lib/devices//dashboard_screen.dart:4:8: Error: Error when reading 'lib/devices/services/home_session.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../services/home_session.dart';
+       ^
+lib/devices//monitoring_screen.dart:4:8: Error: Error when reading 'lib/devices/services/home_session.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/home_session.dart';
+       ^
+lib/devices//profile_screen.dart:5:8: Error: Error when reading 'lib/devices/services/home_session.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../services/home_session.dart';
+       ^
+lib/devices//device_control_screen.dart:5:8: Error: Error when reading 'lib/devices/widgets/home_switcher.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../widgets/home_switcher.dart';
+       ^
+lib/devices//dashboard_screen.dart:6:8: Error: Error when reading 'lib/devices/widgets/home_switcher.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../widgets/home_switcher.dart';
+       ^
+lib/devices//monitoring_screen.dart:6:8: Error: Error when reading 'lib/devices/widgets/home_switcher.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../widgets/home_switcher.dart';
+       ^
+lib/devices//profile_screen.dart:7:8: Error: Error when reading 'lib/devices/widgets/home_switcher.dart': Le chemin dÔÇÖacc├¿s 
+sp├®cifi├® est introuvable
+import '../widgets/home_switcher.dart';
+       ^
+lib/devices//dashboard_screen.dart:3:8: Error: Error when reading 'lib/devices/services/summary_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/summary_service.dart';
+       ^
+lib/devices//monitoring_screen.dart:3:8: Error: Error when reading 'lib/devices/services/sensor_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/sensor_service.dart';
+       ^
+lib/devices//profile_screen.dart:4:8: Error: Error when reading 'lib/devices/services/profile_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/profile_service.dart';
+       ^
+lib/devices//discovered_devices_screen.dart:4:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//discovered_devices_screen.dart:7:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//profile_screen.dart:9:8: Error: Error when reading 'lib/devices/devices//auth/sign_in_screen.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../devices//auth/sign_in_screen.dart';
+       ^
+lib/devices//discovered_devices_screen.dart:3:8: Error: Error when reading 'lib/devices/services/device_discovery_service.dart': 
+Le chemin dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_discovery_service.dart';
+       ^
+lib/devices//discovered_devices_screen.dart:5:8: Error: Error when reading 'lib/devices/services/network_service.dart': Le 
+chemin dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/network_service.dart';
+       ^
+lib/devices//add_device_manual_screen.dart:2:8: Error: Error when reading 'lib/devices/services/device_service.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../services/device_service.dart';
+       ^
+lib/devices//add_device_manual_screen.dart:3:8: Error: Error when reading 'lib/devices/themes/app_themes.dart': Le chemin 
+dÔÇÖacc├¿s sp├®cifi├® est introuvable
+import '../themes/app_themes.dart';
+       ^
+lib/devices//main_navigation.dart:33:14: Error: Type 'NavItem' not found.
+  final List<NavItem> _navItems = const [
+             ^^^^^^^
+lib/devices//device_control_screen.dart:17:8: Error: Type 'Device' not found.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//device_control_screen.dart:48:22: Error: Type 'Device' not found.
+  Future<void> _send(Device d, String action, [num? value]) async {
+                     ^^^^^^
+lib/devices//device_control_screen.dart:229:22: Error: Type 'Device' not found.
+  Widget _titleBlock(Device d, String subtitle) {
+                     ^^^^^^
+lib/devices//device_control_screen.dart:255:21: Error: Type 'Device' not found.
+  Widget _lightCard(Device d) {
+                    ^^^^^^
+lib/devices//device_control_screen.dart:273:19: Error: Type 'Device' not found.
+  Widget _fanCard(Device d) {
+                  ^^^^^^
+lib/devices//device_control_screen.dart:305:20: Error: Type 'Device' not found.
+  Widget _doorCard(Device d) {
+                   ^^^^^^
+lib/devices//device_control_screen.dart:348:18: Error: Type 'Device' not found.
+  Widget _tvCard(Device d) {
+                 ^^^^^^
+lib/devices//device_control_screen.dart:413:21: Error: Type 'Device' not found.
+  Widget _servoCard(Device d) {
+                    ^^^^^^
+lib/devices//dashboard_screen.dart:18:3: Error: Type 'HomeSummary' not found.
+  HomeSummary? _summary;
+  ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:19:8: Error: Type 'Device' not found.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//dashboard_screen.dart:166:28: Error: Type 'HomeSummary' not found.
+  Widget _buildWeatherCard(HomeSummary s) {
+                           ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:236:30: Error: Type 'HomeSummary' not found.
+  Widget _buildQuickStatsRow(HomeSummary s) {
+                             ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:300:21: Error: Type 'Device' not found.
+  IconData _iconFor(Device d) {
+                    ^^^^^^
+lib/devices//monitoring_screen.dart:23:8: Error: Type 'SensorPoint' not found.
+  List<SensorPoint> _temps = []; // points qui ont une temp├®rature
+       ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:24:8: Error: Type 'SensorPoint' not found.
+  List<SensorPoint> _hums = []; // points qui ont une humidit├®
+       ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:25:8: Error: Type 'Device' not found.
+  List<Device> _sensors = [];
+       ^^^^^^
+lib/devices//monitoring_screen.dart:308:19: Error: Type 'SensorPoint' not found.
+    required List<SensorPoint> points,
+                  ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:309:30: Error: Type 'SensorPoint' not found.
+    required double Function(SensorPoint) value,
+                             ^^^^^^^^^^^
+lib/devices//profile_screen.dart:21:3: Error: Type 'UserProfile' not found.
+  UserProfile? _profile;
+  ^^^^^^^^^^^
+lib/devices//profile_screen.dart:22:8: Error: Type 'Device' not found.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//profile_screen.dart:191:27: Error: Type 'UserProfile' not found.
+  Widget _buildUserHeader(UserProfile p) {
+                          ^^^^^^^^^^^
+lib/devices//profile_screen.dart:287:21: Error: Type 'Device' not found.
+  Widget _deviceRow(Device d) {
+                    ^^^^^^
+lib/devices//discovered_devices_screen.dart:20:9: Error: Type 'DeviceDiscoveryService' not found.
+  final DeviceDiscoveryService _service = DeviceDiscoveryService();
+        ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:22:27: Error: Type 'DiscoveredDevice' not found.
+  StreamSubscription<List<DiscoveredDevice>>? _sub;
+                          ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:25:8: Error: Type 'DiscoveredDevice' not found.
+  List<DiscoveredDevice> _found = [];
+       ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:31:8: Error: Type 'NetworkHost' not found.
+  List<NetworkHost> _hosts = [];
+       ^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:56:27: Error: Type 'DiscoveredDevice' not found.
+  Future<void> _addDevice(DiscoveredDevice d) async {
+                          ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:83:25: Error: Type 'NetworkHost' not found.
+  Future<void> _addHost(NetworkHost h) async {
+                        ^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:296:22: Error: Type 'DiscoveredDevice' not found.
+  Widget _deviceCard(DiscoveredDevice d) {
+                     ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:448:20: Error: Type 'NetworkHost' not found.
+  Widget _hostCard(NetworkHost h) {
+                   ^^^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:33:25: Error: The getter 'AuthService' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AuthService'.
+    final error = await AuthService.instance.login(
+                        ^^^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:75:28: Error: Not a constant expression.
+                    color: AppColors.primaryBlue,
+                           ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:84:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:93:28: Error: Not a constant expression.
+                    color: AppColors.textSecondary,
+                           ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:159:32: Error: Not a constant expression.
+                        color: AppColors.primaryBlue,
+                               ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:208:49: Error: Not a constant expression.
+                        style: TextStyle(color: AppColors.textSecondary),
+                                                ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:220:36: Error: Not a constant expression.
+                            color: AppColors.primaryBlue,
+                                   ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:54:24: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:70:28: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                    color: AppColors.primaryBlue.withOpacity(0.15),
+                           ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:132:30: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      color: AppColors.textSecondary,
+                             ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:174:40: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      backgroundColor: AppColors.primaryBlue,
+                                       ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:241:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:262:37: Error: Not a constant expression.
+      style: const TextStyle(color: AppColors.textPrimary, fontSize: 15),
+                                    ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:265:43: Error: Not a constant expression.
+        hintStyle: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                          ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:281:47: Error: Not a constant expression.
+          borderSide: const BorderSide(color: AppColors.primaryBlue, width: 1.5),
+                                              ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:266:39: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        prefixIcon: Icon(icon, color: AppColors.textSecondary, size: 20),
+                                      ^^^^^^^^^
+lib/devices//auth/sign_in_screen.dart:269:20: Error: The getter 'AppColors' isn't defined for the type '_SignInScreenState'.
+ - '_SignInScreenState' is from 'package:app_pfe/devices//auth/sign_in_screen.dart' ('lib/devices//auth/sign_in_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        fillColor: AppColors.surface,
+                   ^^^^^^^^^
+lib/devices//main_navigation.dart:33:14: Error: 'NavItem' isn't a type.
+  final List<NavItem> _navItems = const [
+             ^^^^^^^
+lib/devices//main_navigation.dart:34:5: Error: Method not found: 'NavItem'.
+    NavItem(icon: Icons.home_rounded, label: 'Accueil'),
+    ^^^^^^^
+lib/devices//main_navigation.dart:35:5: Error: Method not found: 'NavItem'.
+    NavItem(icon: Icons.tune_rounded, label: 'Contr├┤le'),
+    ^^^^^^^
+lib/devices//main_navigation.dart:36:5: Error: Method not found: 'NavItem'.
+    NavItem(icon: Icons.thermostat_rounded, label: 'Monitoring'),
+    ^^^^^^^
+lib/devices//main_navigation.dart:38:5: Error: Method not found: 'NavItem'.
+    NavItem(icon: Icons.person_rounded, label: 'Profil'),
+    ^^^^^^^
+lib/devices//main_navigation.dart:44:24: Error: The getter 'AppColors' isn't defined for the type '_MainNavigationState'.
+ - '_MainNavigationState' is from 'package:app_pfe/devices//main_navigation.dart' ('lib/devices//main_navigation.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//main_navigation.dart:49:28: Error: The method 'BottomNavBar' isn't defined for the type '_MainNavigationState'.
+ - '_MainNavigationState' is from 'package:app_pfe/devices//main_navigation.dart' ('lib/devices//main_navigation.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'BottomNavBar'.
+      bottomNavigationBar: BottomNavBar(
+                           ^^^^^^^^^^^^
+lib/devices//main_navigation.dart:78:24: Error: Not a constant expression.
+                color: AppColors.textPrimary,
+                       ^^^^^^^^^
+lib/devices//main_navigation.dart:86:39: Error: Not a constant expression.
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                                      ^^^^^^^^^
+lib/devices//main_navigation.dart:73:31: Error: The getter 'AppColors' isn't defined for the type '_PlaceholderScreen'.
+ - '_PlaceholderScreen' is from 'package:app_pfe/devices//main_navigation.dart' ('lib/devices//main_navigation.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            Icon(icon, color: AppColors.textSecondary, size: 48),
+                              ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:39:25: Error: The getter 'AuthService' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AuthService'.
+    final error = await AuthService.instance.register(
+                        ^^^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:87:30: Error: Not a constant expression.
+                      color: AppColors.textPrimary,
+                             ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:97:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:106:28: Error: Not a constant expression.
+                    color: AppColors.textSecondary,
+                           ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:244:49: Error: Not a constant expression.
+                        style: TextStyle(color: AppColors.textSecondary),
+                                                ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:251:36: Error: Not a constant expression.
+                            color: AppColors.primaryBlue,
+                                   ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:63:24: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:82:30: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      color: AppColors.surface,
+                             ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:158:30: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      color: AppColors.textSecondary,
+                             ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:189:30: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      color: AppColors.textSecondary,
+                             ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:211:40: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      backgroundColor: AppColors.primaryBlue,
+                                       ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:272:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:293:37: Error: Not a constant expression.
+      style: const TextStyle(color: AppColors.textPrimary, fontSize: 15),
+                                    ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:296:43: Error: Not a constant expression.
+        hintStyle: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                          ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:312:47: Error: Not a constant expression.
+          borderSide: const BorderSide(color: AppColors.primaryBlue, width: 1.5),
+                                              ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:297:39: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        prefixIcon: Icon(icon, color: AppColors.textSecondary, size: 20),
+                                      ^^^^^^^^^
+lib/devices//auth/sign_up_screen.dart:300:20: Error: The getter 'AppColors' isn't defined for the type '_SignUpScreenState'.
+ - '_SignUpScreenState' is from 'package:app_pfe/devices//auth/sign_up_screen.dart' ('lib/devices//auth/sign_up_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        fillColor: AppColors.surface,
+                   ^^^^^^^^^
+lib/devices//device_control_screen.dart:17:8: Error: 'Device' isn't a type.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//device_control_screen.dart:25:5: Error: The getter 'HomeSession' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.addListener(_load);
+    ^^^^^^^^^^^
+lib/devices//device_control_screen.dart:31:5: Error: The getter 'HomeSession' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.removeListener(_load);
+    ^^^^^^^^^^^
+lib/devices//device_control_screen.dart:42:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//device_control_screen.dart:41:24: Error: The getter 'DeviceService' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      _devices = await DeviceService.instance.fetchDevices();
+                       ^^^^^^^^^^^^^
+lib/devices//device_control_screen.dart:48:22: Error: 'Device' isn't a type.
+  Future<void> _send(Device d, String action, [num? value]) async {
+                     ^^^^^^
+lib/devices//device_control_screen.dart:54:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//device_control_screen.dart:51:29: Error: The getter 'DeviceService' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      final updated = await DeviceService.instance.sendCommand(d.id, action, value);
+                            ^^^^^^^^^^^^^
+lib/devices//device_control_screen.dart:52:46: Error: The getter 'id' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'id'.
+      final i = _devices.indexWhere((x) => x.id == d.id);
+                                             ^^
+lib/devices//device_control_screen.dart:68:24: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//device_control_screen.dart:116:37: Error: 'Device' isn't a type.
+    void section(String title, List<Device> items, Widget Function(Device) card) {
+                                    ^^^^^^
+lib/devices//device_control_screen.dart:116:68: Error: 'Device' isn't a type.
+    void section(String title, List<Device> items, Widget Function(Device) card) {
+                                                                   ^^^^^^
+lib/devices//device_control_screen.dart:109:44: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+    final lights = _devices.where((d) => d.type == 'light').toList();
+                                           ^^^^
+lib/devices//device_control_screen.dart:110:42: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+    final fans = _devices.where((d) => d.type == 'fan').toList();
+                                         ^^^^
+lib/devices//device_control_screen.dart:111:43: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+    final doors = _devices.where((d) => d.type == 'door').toList();
+                                          ^^^^
+lib/devices//device_control_screen.dart:112:44: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+    final servos = _devices.where((d) => d.type == 'servo').toList();
+                                           ^^^^
+lib/devices//device_control_screen.dart:113:41: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+    final tvs = _devices.where((d) => d.type == 'tv').toList();
+                                        ^^^^
+lib/devices//device_control_screen.dart:148:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//device_control_screen.dart:143:16: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//device_control_screen.dart:165:24: Error: Not a constant expression.
+                color: AppColors.textPrimary,
+                       ^^^^^^^^^
+lib/devices//device_control_screen.dart:173:39: Error: Not a constant expression.
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//device_control_screen.dart:160:13: Error: Not a constant expression.
+            HomeSwitcher(),
+            ^^^^^^^^^^^^
+lib/devices//device_control_screen.dart:180:22: Error: Not a constant expression.
+              color: AppColors.primaryBlue, size: 20),
+                     ^^^^^^^^^
+lib/devices//device_control_screen.dart:181:56: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
+                                                       ^^^^^^^^^
+lib/devices//device_control_screen.dart:191:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//device_control_screen.dart:205:16: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//device_control_screen.dart:217:15: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            ? AppColors.primaryBlue.withValues(alpha: 0.15)
+              ^^^^^^^^^
+lib/devices//device_control_screen.dart:218:15: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            : AppColors.surfaceLight,
+              ^^^^^^^^^
+lib/devices//device_control_screen.dart:223:25: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: active ? AppColors.primaryBlue : AppColors.textSecondary,
+                        ^^^^^^^^^
+lib/devices//device_control_screen.dart:223:49: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: active ? AppColors.primaryBlue : AppColors.textSecondary,
+                                                ^^^^^^^^^
+lib/devices//device_control_screen.dart:229:22: Error: 'Device' isn't a type.
+  Widget _titleBlock(Device d, String subtitle) {
+                     ^^^^^^
+lib/devices//device_control_screen.dart:237:22: Error: Not a constant expression.
+              color: AppColors.textPrimary,
+                     ^^^^^^^^^
+lib/devices//device_control_screen.dart:246:33: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: d.online ? AppColors.textSecondary : AppColors.warning,
+                                ^^^^^^^^^
+lib/devices//device_control_screen.dart:246:59: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: d.online ? AppColors.textSecondary : AppColors.warning,
+                                                          ^^^^^^^^^
+lib/devices//device_control_screen.dart:255:21: Error: 'Device' isn't a type.
+  Widget _lightCard(Device d) {
+                    ^^^^^^
+lib/devices//device_control_screen.dart:273:19: Error: 'Device' isn't a type.
+  Widget _fanCard(Device d) {
+                  ^^^^^^
+lib/devices//device_control_screen.dart:305:20: Error: 'Device' isn't a type.
+  Widget _doorCard(Device d) {
+                   ^^^^^^
+lib/devices//device_control_screen.dart:313:32: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: (locked ? AppColors.primaryBlue : AppColors.warning)
+                               ^^^^^^^^^
+lib/devices//device_control_screen.dart:313:56: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: (locked ? AppColors.primaryBlue : AppColors.warning)
+                                                       ^^^^^^^^^
+lib/devices//device_control_screen.dart:319:31: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: locked ? AppColors.primaryBlue : AppColors.warning,
+                              ^^^^^^^^^
+lib/devices//device_control_screen.dart:319:55: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: locked ? AppColors.primaryBlue : AppColors.warning,
+                                                      ^^^^^^^^^
+lib/devices//device_control_screen.dart:331:28: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  locked ? AppColors.surfaceLight : AppColors.primaryBlue,
+                           ^^^^^^^^^
+lib/devices//device_control_screen.dart:331:53: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  locked ? AppColors.surfaceLight : AppColors.primaryBlue,
+                                                    ^^^^^^^^^
+lib/devices//device_control_screen.dart:348:18: Error: 'Device' isn't a type.
+  Widget _tvCard(Device d) {
+                 ^^^^^^
+lib/devices//device_control_screen.dart:405:45: Error: Not a constant expression.
+              style: const TextStyle(color: AppColors.textSecondary, fontSize: 11),
+                                            ^^^^^^^^^
+lib/devices//device_control_screen.dart:391:18: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          color: AppColors.surfaceLight,
+                 ^^^^^^^^^
+lib/devices//device_control_screen.dart:399:38: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: onTap == null ? AppColors.textSecondary : AppColors.primaryBlue,
+                                     ^^^^^^^^^
+lib/devices//device_control_screen.dart:399:64: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: onTap == null ? AppColors.textSecondary : AppColors.primaryBlue,
+                                                               ^^^^^^^^^
+lib/devices//device_control_screen.dart:413:21: Error: 'Device' isn't a type.
+  Widget _servoCard(Device d) {
+                    ^^^^^^
+lib/devices//device_control_screen.dart:426:26: Error: Not a constant expression.
+                  color: AppColors.primaryBlue,
+                         ^^^^^^^^^
+lib/devices//device_control_screen.dart:452:27: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        activeTrackColor: AppColors.primaryBlue,
+                          ^^^^^^^^^
+lib/devices//device_control_screen.dart:453:29: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        inactiveTrackColor: AppColors.surfaceLight,
+                            ^^^^^^^^^
+lib/devices//device_control_screen.dart:454:21: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        thumbColor: AppColors.primaryBlue,
+                    ^^^^^^^^^
+lib/devices//device_control_screen.dart:455:23: Error: The getter 'AppColors' isn't defined for the type 
+'_DeviceControlScreenState'.
+ - '_DeviceControlScreenState' is from 'package:app_pfe/devices//device_control_screen.dart' 
+('lib/devices//device_control_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        overlayColor: AppColors.primaryBlue.withValues(alpha: 0.2),
+                      ^^^^^^^^^
+lib/devices//dashboard_screen.dart:18:3: Error: 'HomeSummary' isn't a type.
+  HomeSummary? _summary;
+  ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:19:8: Error: 'Device' isn't a type.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//dashboard_screen.dart:26:5: Error: The getter 'HomeSession' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.addListener(_load);
+    ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:32:5: Error: The getter 'HomeSession' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.removeListener(_load);
+    ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:46:32: Error: 'HomeSummary' isn't a type.
+      _summary = results[0] as HomeSummary;
+                               ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:47:37: Error: 'Device' isn't a type.
+      _devices = results[1] as List<Device>;
+                                    ^^^^^^
+lib/devices//dashboard_screen.dart:48:10: Error: 'SummaryServiceException' isn't a type.
+    } on SummaryServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:50:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:43:9: Error: The getter 'SummaryService' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'SummaryService'.
+        SummaryService.instance.fetchSummary(),
+        ^^^^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:44:9: Error: The getter 'DeviceService' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        DeviceService.instance.fetchDevices(),
+        ^^^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:42:41: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'Iterable<Future<dynamic>>'.
+ - 'List' is from 'dart:core'.
+ - 'Iterable' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+      final results = await Future.wait([
+                                        ^
+lib/devices//dashboard_screen.dart:86:21: Error: Not a constant expression.
+      return const [NoHomeCard()];
+                    ^^^^^^^^^^
+lib/devices//dashboard_screen.dart:84:21: Error: The getter 'HomeSession' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    final session = HomeSession.instance;
+                    ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:122:19: Error: Not a constant expression.
+            const HomeSwitcher(),
+                  ^^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:127:24: Error: Not a constant expression.
+                color: AppColors.textPrimary,
+                       ^^^^^^^^^
+lib/devices//dashboard_screen.dart:136:26: Error: Not a constant expression.
+                  color: AppColors.textSecondary, fontSize: 14),
+                         ^^^^^^^^^
+lib/devices//dashboard_screen.dart:143:22: Error: Not a constant expression.
+              color: AppColors.primaryBlue, size: 20),
+                     ^^^^^^^^^
+lib/devices//dashboard_screen.dart:144:56: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
+                                                       ^^^^^^^^^
+lib/devices//dashboard_screen.dart:159:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//dashboard_screen.dart:154:16: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//dashboard_screen.dart:166:28: Error: 'HomeSummary' isn't a type.
+  Widget _buildWeatherCard(HomeSummary s) {
+                           ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:179:13: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            AppColors.primaryBlue.withValues(alpha: 0.9),
+            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:180:13: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            AppColors.primaryBlue.withValues(alpha: 0.5),
+            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:226:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//dashboard_screen.dart:236:30: Error: 'HomeSummary' isn't a type.
+  Widget _buildQuickStatsRow(HomeSummary s) {
+                             ^^^^^^^^^^^
+lib/devices//dashboard_screen.dart:244:20: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            color: AppColors.primaryBlue,
+                   ^^^^^^^^^
+lib/devices//dashboard_screen.dart:255:36: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            color: s.doorsLocked ? AppColors.success : AppColors.warning,
+                                   ^^^^^^^^^
+lib/devices//dashboard_screen.dart:255:56: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            color: s.doorsLocked ? AppColors.success : AppColors.warning,
+                                                       ^^^^^^^^^
+lib/devices//dashboard_screen.dart:282:22: Error: Not a constant expression.
+              color: AppColors.textPrimary,
+                     ^^^^^^^^^
+lib/devices//dashboard_screen.dart:291:40: Error: Not a constant expression.
+                const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                       ^^^^^^^^^
+lib/devices//dashboard_screen.dart:271:16: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//dashboard_screen.dart:300:21: Error: 'Device' isn't a type.
+  IconData _iconFor(Device d) {
+                    ^^^^^^
+lib/devices//dashboard_screen.dart:381:26: Error: Not a constant expression.
+                  color: AppColors.textPrimary,
+                         ^^^^^^^^^
+lib/devices//dashboard_screen.dart:337:20: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            color: AppColors.surface,
+                   ^^^^^^^^^
+lib/devices//dashboard_screen.dart:351:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          ? AppColors.primaryBlue.withValues(alpha: 0.15)
+                            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:352:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          : AppColors.surfaceLight,
+                            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:358:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          ? AppColors.primaryBlue
+                            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:359:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          : AppColors.textSecondary,
+                            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:369:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          ? AppColors.success
+                            ^^^^^^^^^
+lib/devices//dashboard_screen.dart:370:29: Error: The getter 'AppColors' isn't defined for the type '_DashboardScreenState'.
+ - '_DashboardScreenState' is from 'package:app_pfe/devices//dashboard_screen.dart' ('lib/devices//dashboard_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          : AppColors.textSecondary,
+                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:23:8: Error: 'SensorPoint' isn't a type.
+  List<SensorPoint> _temps = []; // points qui ont une temp├®rature
+       ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:24:8: Error: 'SensorPoint' isn't a type.
+  List<SensorPoint> _hums = []; // points qui ont une humidit├®
+       ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:25:8: Error: 'Device' isn't a type.
+  List<Device> _sensors = [];
+       ^^^^^^
+lib/devices//monitoring_screen.dart:32:5: Error: The getter 'HomeSession' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.addListener(_load);
+    ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:38:5: Error: The getter 'HomeSession' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.removeListener(_load);
+    ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:52:41: Error: 'SensorPoint' isn't a type.
+      final points = results[0] as List<SensorPoint>;
+                                        ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:56:31: Error: 'Device' isn't a type.
+          (results[1] as List<Device>).where((d) => d.type == 'sensor').toList();
+                              ^^^^^^
+lib/devices//monitoring_screen.dart:57:10: Error: 'SensorServiceException' isn't a type.
+    } on SensorServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:59:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:49:9: Error: The getter 'SensorService' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'SensorService'.
+        SensorService.instance.fetchHistory(_selectedPeriod),
+        ^^^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:50:9: Error: The getter 'DeviceService' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        DeviceService.instance.fetchDevices(),
+        ^^^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:48:41: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'Iterable<Future<dynamic>>'.
+ - 'List' is from 'dart:core'.
+ - 'Iterable' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+      final results = await Future.wait([
+                                        ^
+lib/devices//monitoring_screen.dart:53:38: Error: The getter 'temperature' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'temperature'.
+      _temps = points.where((p) => p.temperature != null).toList();
+                                     ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:54:37: Error: The getter 'humidity' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'humidity'.
+      _hums = points.where((p) => p.humidity != null).toList();
+                                    ^^^^^^^^
+lib/devices//monitoring_screen.dart:56:55: Error: The getter 'type' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'type'.
+          (results[1] as List<Device>).where((d) => d.type == 'sensor').toList();
+                                                      ^^^^
+lib/devices//monitoring_screen.dart:116:16: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.primaryBlue,
+               ^^^^^^^^^
+lib/devices//monitoring_screen.dart:115:25: Error: The getter 'temperature' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'temperature'.
+        value: (p) => p.temperature!,
+                        ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:123:25: Error: The getter 'humidity' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'humidity'.
+        value: (p) => p.humidity!,
+                        ^^^^^^^^
+lib/devices//monitoring_screen.dart:142:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//monitoring_screen.dart:137:16: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//monitoring_screen.dart:159:24: Error: Not a constant expression.
+                color: AppColors.textPrimary,
+                       ^^^^^^^^^
+lib/devices//monitoring_screen.dart:167:39: Error: Not a constant expression.
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//monitoring_screen.dart:154:13: Error: Not a constant expression.
+            HomeSwitcher(),
+            ^^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:174:22: Error: Not a constant expression.
+              color: AppColors.primaryBlue, size: 20),
+                     ^^^^^^^^^
+lib/devices//monitoring_screen.dart:175:56: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
+                                                       ^^^^^^^^^
+lib/devices//monitoring_screen.dart:192:37: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                color: isSelected ? AppColors.primaryBlue : AppColors.surface,
+                                    ^^^^^^^^^
+lib/devices//monitoring_screen.dart:192:61: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                color: isSelected ? AppColors.primaryBlue : AppColors.surface,
+                                                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:198:54: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  color: isSelected ? Colors.white : AppColors.textSecondary,
+                                                     ^^^^^^^^^
+lib/devices//monitoring_screen.dart:222:20: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            color: AppColors.primaryBlue,
+                   ^^^^^^^^^
+lib/devices//monitoring_screen.dart:268:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//monitoring_screen.dart:276:30: Error: Not a constant expression.
+                      color: AppColors.textSecondary, fontSize: 11),
+                             ^^^^^^^^^
+lib/devices//monitoring_screen.dart:247:16: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//monitoring_screen.dart:290:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//monitoring_screen.dart:308:19: Error: 'SensorPoint' isn't a type.
+    required List<SensorPoint> points,
+                  ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:309:30: Error: 'SensorPoint' isn't a type.
+    required double Function(SensorPoint) value,
+                             ^^^^^^^^^^^
+lib/devices//monitoring_screen.dart:349:34: Error: Not a constant expression.
+                          color: AppColors.textSecondary, fontSize: 10),
+                                 ^^^^^^^^^
+lib/devices//monitoring_screen.dart:326:16: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//monitoring_screen.dart:337:41: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'List<double>'.
+ - 'List' is from 'dart:core'.
+                data: points.map(value).toList(),
+                                        ^
+lib/devices//monitoring_screen.dart:391:34: Error: Not a constant expression.
+                          color: AppColors.textPrimary, fontSize: 13),
+                                 ^^^^^^^^^
+lib/devices//monitoring_screen.dart:371:24: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                color: AppColors.surface,
+                       ^^^^^^^^^
+lib/devices//monitoring_screen.dart:380:32: Error: The getter 'online' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'online'.
+                      color: s.online
+                               ^^^^^^
+lib/devices//monitoring_screen.dart:381:29: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          ? AppColors.success
+                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:382:29: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          : AppColors.textSecondary,
+                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:389:25: Error: The getter 'name' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'name'.
+                      s.name,
+                        ^^^^
+lib/devices//monitoring_screen.dart:395:23: Error: The getter 'online' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'online'.
+                    s.online ? 'En ligne' : 'Hors ligne',
+                      ^^^^^^
+lib/devices//monitoring_screen.dart:397:32: Error: The getter 'online' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'online'.
+                      color: s.online
+                               ^^^^^^
+lib/devices//monitoring_screen.dart:398:29: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          ? AppColors.success
+                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:399:29: Error: The getter 'AppColors' isn't defined for the type '_MonitoringScreenState'.
+ - '_MonitoringScreenState' is from 'package:app_pfe/devices//monitoring_screen.dart' ('lib/devices//monitoring_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                          : AppColors.textSecondary,
+                            ^^^^^^^^^
+lib/devices//monitoring_screen.dart:407:12: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'List<Widget>'.
+ - 'List' is from 'dart:core'.
+ - 'Widget' is from 'package:flutter/src/widgets/framework.dart' ('/D:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+          .toList(),
+           ^
+lib/devices//profile_screen.dart:21:3: Error: 'UserProfile' isn't a type.
+  UserProfile? _profile;
+  ^^^^^^^^^^^
+lib/devices//profile_screen.dart:22:8: Error: 'Device' isn't a type.
+  List<Device> _devices = [];
+       ^^^^^^
+lib/devices//profile_screen.dart:29:5: Error: The getter 'HomeSession' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.addListener(_load);
+    ^^^^^^^^^^^
+lib/devices//profile_screen.dart:35:5: Error: The getter 'HomeSession' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    HomeSession.instance.changes.removeListener(_load);
+    ^^^^^^^^^^^
+lib/devices//profile_screen.dart:49:32: Error: 'UserProfile' isn't a type.
+      _profile = results[0] as UserProfile;
+                               ^^^^^^^^^^^
+lib/devices//profile_screen.dart:50:37: Error: 'Device' isn't a type.
+      _devices = results[1] as List<Device>;
+                                    ^^^^^^
+lib/devices//profile_screen.dart:51:10: Error: 'ProfileServiceException' isn't a type.
+    } on ProfileServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//profile_screen.dart:53:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//profile_screen.dart:46:9: Error: The getter 'ProfileService' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ProfileService'.
+        ProfileService.instance.fetchProfile(),
+        ^^^^^^^^^^^^^^
+lib/devices//profile_screen.dart:47:9: Error: The getter 'DeviceService' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        DeviceService.instance.fetchDevices(),
+        ^^^^^^^^^^^^^
+lib/devices//profile_screen.dart:45:41: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'Iterable<Future<dynamic>>'.
+ - 'List' is from 'dart:core'.
+ - 'Iterable' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+      final results = await Future.wait([
+                                        ^
+lib/devices//profile_screen.dart:74:47: Error: Not a constant expression.
+      MaterialPageRoute(builder: (_) => const SignInScreen()),
+                                              ^^^^^^^^^^^^
+lib/devices//profile_screen.dart:69:11: Error: The getter 'AuthService' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AuthService'.
+    await AuthService.instance.logout();
+          ^^^^^^^^^^^
+lib/devices//profile_screen.dart:70:11: Error: The getter 'HomeSession' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'HomeSession'.
+    await HomeSession.instance.reset();
+          ^^^^^^^^^^^
+lib/devices//profile_screen.dart:124:28: Error: Not a constant expression.
+                    color: AppColors.danger,
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:96:36: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  backgroundColor: AppColors.primaryBlue,
+                                   ^^^^^^^^^
+lib/devices//profile_screen.dart:157:59: Error: Not a constant expression.
+      const Align(alignment: Alignment.centerLeft, child: HomeSwitcher()),
+                                                          ^^^^^^^^^^^^
+lib/devices//profile_screen.dart:165:46: Error: The getter 'online' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'online'.
+                  '${_devices.where((d) => d.online).length}', 'En ligne')),
+                                             ^^^^^^
+lib/devices//profile_screen.dart:173:49: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 
+'List<Widget>'.
+ - 'List' is from 'dart:core'.
+ - 'Widget' is from 'package:flutter/src/widgets/framework.dart' ('/D:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+          : _buildCard(_devices.map(_deviceRow).toList()),
+                                                ^
+lib/devices//profile_screen.dart:186:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//profile_screen.dart:181:16: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: AppColors.surface,
+               ^^^^^^^^^
+lib/devices//profile_screen.dart:191:27: Error: 'UserProfile' isn't a type.
+  Widget _buildUserHeader(UserProfile p) {
+                          ^^^^^^^^^^^
+lib/devices//profile_screen.dart:198:46: Error: Not a constant expression.
+              shape: BoxShape.circle, color: AppColors.primaryBlue),
+                                             ^^^^^^^^^
+lib/devices//profile_screen.dart:216:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:226:28: Error: Not a constant expression.
+                    color: AppColors.textSecondary, fontSize: 13),
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:246:24: Error: Not a constant expression.
+                color: AppColors.textPrimary,
+                       ^^^^^^^^^
+lib/devices//profile_screen.dart:253:26: Error: Not a constant expression.
+                  color: AppColors.textSecondary, fontSize: 12)),
+                         ^^^^^^^^^
+lib/devices//profile_screen.dart:239:18: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+                 ^^^^^^^^^
+lib/devices//profile_screen.dart:263:16: Error: Not a constant expression.
+        color: AppColors.textSecondary,
+               ^^^^^^^^^
+lib/devices//profile_screen.dart:275:54: Error: Not a constant expression.
+        children.add(const Divider(height: 1, color: AppColors.surfaceLight));
+                                                     ^^^^^^^^^
+lib/devices//profile_screen.dart:282:18: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+                 ^^^^^^^^^
+lib/devices//profile_screen.dart:287:21: Error: 'Device' isn't a type.
+  Widget _deviceRow(Device d) {
+                    ^^^^^^
+lib/devices//profile_screen.dart:304:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary, fontSize: 14)),
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:309:24: Error: Not a constant expression.
+                color: AppColors.textSecondary, fontSize: 13),
+                       ^^^^^^^^^
+lib/devices//profile_screen.dart:297:33: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: d.online ? AppColors.success : AppColors.textSecondary,
+                                ^^^^^^^^^
+lib/devices//profile_screen.dart:297:53: Error: The getter 'AppColors' isn't defined for the type '_ProfileScreenState'.
+ - '_ProfileScreenState' is from 'package:app_pfe/devices//profile_screen.dart' ('lib/devices//profile_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: d.online ? AppColors.success : AppColors.textSecondary,
+                                                    ^^^^^^^^^
+lib/devices//profile_screen.dart:324:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary, fontSize: 14)),
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:329:28: Error: Not a constant expression.
+                    color: AppColors.textSecondary, fontSize: 13)),
+                           ^^^^^^^^^
+lib/devices//profile_screen.dart:331:22: Error: Not a constant expression.
+              color: AppColors.textSecondary, size: 20),
+                     ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:20:9: Error: 'DeviceDiscoveryService' isn't a type.
+  final DeviceDiscoveryService _service = DeviceDiscoveryService();
+        ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:20:43: Error: Method not found: 'DeviceDiscoveryService'.
+  final DeviceDiscoveryService _service = DeviceDiscoveryService();
+                                          ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:22:27: Error: 'DiscoveredDevice' isn't a type.
+  StreamSubscription<List<DiscoveredDevice>>? _sub;
+                          ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:25:8: Error: 'DiscoveredDevice' isn't a type.
+  List<DiscoveredDevice> _found = [];
+       ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:31:8: Error: 'NetworkHost' isn't a type.
+  List<NetworkHost> _hosts = [];
+       ^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:56:27: Error: 'DiscoveredDevice' isn't a type.
+  Future<void> _addDevice(DiscoveredDevice d) async {
+                          ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:63:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:59:13: Error: The getter 'DeviceService' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      await DeviceService.instance
+            ^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:77:10: Error: 'NetworkServiceException' isn't a type.
+    } on NetworkServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:75:22: Error: The getter 'NetworkService' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'NetworkService'.
+      _hosts = await NetworkService.instance.scan();
+                     ^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:83:25: Error: 'NetworkHost' isn't a type.
+  Future<void> _addHost(NetworkHost h) async {
+                        ^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:94:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:86:13: Error: The getter 'DeviceService' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      await DeviceService.instance.addManual(
+            ^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:88:15: Error: The getter 'DeviceService' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        type: DeviceService.typeForKind(h.kind),
+              ^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:158:26: Error: Not a constant expression.
+                  color: AppColors.textSecondary,
+                         ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:171:51: Error: Not a constant expression.
+                    side: const BorderSide(color: AppColors.primaryBlue),
+                                                  ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:176:45: Error: Not a constant expression.
+                    style: TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.w600),
+                                            ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:142:24: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:192:69: Error: Not a constant expression.
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.textPrimary, size: 18),
+                                                                    ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:201:39: Error: Not a constant expression.
+              style: TextStyle(color: AppColors.textPrimary, fontSize: 20, fontWeight: FontWeight.bold),
+                                      ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:205:39: Error: Not a constant expression.
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                                      ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:193:56: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+          style: IconButton.styleFrom(backgroundColor: AppColors.surface),
+                                                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:238:76: Error: Not a constant expression.
+            decoration: const BoxDecoration(shape: BoxShape.circle, color: AppColors.primaryBlue),
+                                                                           ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:229:28: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                    color: AppColors.primaryBlue.withOpacity(1 - _radar.value),
+                           ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:253:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+                                      ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:274:56: Error: Not a constant expression.
+            icon: const Icon(Icons.add_rounded, color: AppColors.primaryBlue),
+                                                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:278:24: Error: Not a constant expression.
+                color: AppColors.primaryBlue,
+                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:283:45: Error: Not a constant expression.
+              side: const BorderSide(color: AppColors.primaryBlue),
+                                            ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:296:22: Error: 'DiscoveredDevice' isn't a type.
+  Widget _deviceCard(DiscoveredDevice d) {
+                     ^^^^^^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:320:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:328:49: Error: Not a constant expression.
+                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                                ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:334:28: Error: Not a constant expression.
+                    color: AppColors.success,
+                           ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:343:63: Error: Not a constant expression.
+              ? const Icon(Icons.check_circle_rounded, color: AppColors.success)
+                                                              ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:301:40: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+                                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:307:22: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: AppColors.primaryBlue.withValues(alpha: 0.15),
+                     ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:310:50: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+            child: Icon(_iconFor(d.type), color: AppColors.primaryBlue, size: 22),
+                                                 ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:347:38: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                    backgroundColor: AppColors.primaryBlue,
+                                     ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:376:20: Error: Not a constant expression.
+            color: AppColors.textSecondary,
+                   ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:385:35: Error: Not a constant expression.
+          style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                  ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:394:45: Error: Not a constant expression.
+              side: const BorderSide(color: AppColors.surfaceLight),
+                                            ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:408:51: Error: Not a constant expression.
+                          style: TextStyle(color: AppColors.textSecondary)),
+                                                  ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:414:30: Error: Not a constant expression.
+                      color: AppColors.textPrimary,
+                             ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:367:42: Error: The getter 'ip' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ip'.
+    final foundIps = _found.map((d) => d.ip).toSet();
+                                         ^^
+lib/devices//discovered_devices_screen.dart:368:61: Error: The getter 'ip' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'ip'.
+    final others = _hosts.where((h) => !foundIps.contains(h.ip)).toList();
+                                                            ^^
+lib/devices//discovered_devices_screen.dart:441:39: Error: Not a constant expression.
+        style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                                      ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:438:40: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(16)),
+                                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:448:20: Error: 'NetworkHost' isn't a type.
+  Widget _hostCard(NetworkHost h) {
+                   ^^^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:488:28: Error: Not a constant expression.
+                    color: AppColors.textPrimary,
+                           ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:496:49: Error: Not a constant expression.
+                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                                ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:511:51: Error: Not a constant expression.
+                    style: const TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                                  ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:519:65: Error: Not a constant expression.
+                ? const Icon(Icons.check_circle_rounded, color: AppColors.success)
+                                                                ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:459:40: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(18)),
+                                       ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:466:21: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  ? AppColors.primaryBlue.withValues(alpha: 0.15)
+                    ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:467:21: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  : AppColors.surfaceLight,
+                    ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:474:27: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: ok ? AppColors.primaryBlue : AppColors.textSecondary,
+                          ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:474:51: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+              color: ok ? AppColors.primaryBlue : AppColors.textSecondary,
+                                                  ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:502:33: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                    color: ok ? AppColors.success : AppColors.warning,
+                                ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:502:53: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                    color: ok ? AppColors.success : AppColors.warning,
+                                                    ^^^^^^^^^
+lib/devices//discovered_devices_screen.dart:523:40: Error: The getter 'AppColors' isn't defined for the type 
+'_DiscoveredDevicesScreenState'.
+ - '_DiscoveredDevicesScreenState' is from 'package:app_pfe/devices//discovered_devices_screen.dart' 
+('lib/devices//discovered_devices_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                      backgroundColor: AppColors.primaryBlue,
+                                       ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:88:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:72:23: Error: The getter 'DeviceService' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      final r = await DeviceService.instance.probe(host);
+                      ^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:80:34: Error: The getter 'DeviceService' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        _setMessage('Reconnu : ${DeviceService.kindLabel(r.kind)}', error: false);
+                                 ^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:131:10: Error: 'DeviceServiceException' isn't a type.
+    } on DeviceServiceException catch (e) {
+         ^^^^^^^^^^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:112:25: Error: The getter 'DeviceService' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        final r = await DeviceService.instance.probe(host);
+                        ^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:122:13: Error: The getter 'DeviceService' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+      await DeviceService.instance.addManual(
+            ^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:124:37: Error: The getter 'DeviceService' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'DeviceService'.
+        type: _isMqtt ? _mqttType : DeviceService.typeForKind(kind),
+                                    ^^^^^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:144:47: Error: Not a constant expression.
+        iconTheme: const IconThemeData(color: AppColors.textPrimary),
+                                              ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:148:20: Error: Not a constant expression.
+            color: AppColors.textPrimary,
+                   ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:203:55: Error: Not a constant expression.
+                        side: const BorderSide(color: AppColors.primaryBlue),
+                                                      ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:214:55: Error: Not a constant expression.
+                              style: TextStyle(color: AppColors.primaryBlue)),
+                                                      ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:223:41: Error: Not a constant expression.
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+                                        ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:140:24: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.background,
+                       ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:142:26: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        backgroundColor: AppColors.background,
+                         ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:234:44: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  color: _messageIsError ? AppColors.danger : AppColors.success,
+                                           ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:234:63: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  color: _messageIsError ? AppColors.danger : AppColors.success,
+                                                              ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:246:36: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+                  backgroundColor: AppColors.primaryBlue,
+                                   ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:281:18: Error: Not a constant expression.
+          color: AppColors.textSecondary,
+                 ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:300:37: Error: Not a constant expression.
+      style: const TextStyle(color: AppColors.textPrimary),
+                                    ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:303:43: Error: Not a constant expression.
+        hintStyle: const TextStyle(color: AppColors.textSecondary),
+                                          ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:305:20: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        fillColor: AppColors.surface,
+                   ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:328:24: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      backgroundColor: AppColors.surface,
+                       ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:329:22: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+      selectedColor: AppColors.primaryBlue,
+                     ^^^^^^^^^
+lib/devices//add_device_manual_screen.dart:331:42: Error: The getter 'AppColors' isn't defined for the type 
+'_AddDeviceManualScreenState'.
+ - '_AddDeviceManualScreenState' is from 'package:app_pfe/devices//add_device_manual_screen.dart' 
+('lib/devices//add_device_manual_screen.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'AppColors'.
+        color: selected ? Colors.white : AppColors.textPrimary,
+                                         ^^^^^^^^^
+Unhandled exception:
+Unsupported operation: Unsupported invalid type InvalidType(<invalid>) (InvalidType). Encountered while compiling 
+file:///D:/smart-home-frontend/lib/devices//main_navigation.dart, which contains the type: InterfaceType(List<<invalid>>).
+#0      LibraryCompiler._typeCompilationError (package:dev_compiler/src/kernel/compiler_new.dart:4494)
+#1      LibraryCompiler._emitType (package:dev_compiler/src/kernel/compiler_new.dart:4459)
+#2      LibraryCompiler._emitClassSignature.emitClassFieldSignature (package:dev_compiler/src/kernel/compiler_new.dart:2165)
+#3      LibraryCompiler._emitClassSignature (package:dev_compiler/src/kernel/compiler_new.dart:2339)
+#4      LibraryCompiler._emitClassDeclaration (package:dev_compiler/src/kernel/compiler_new.dart:1562)
+#5      LibraryCompiler._emitClass (package:dev_compiler/src/kernel/compiler_new.dart:1428)
+#6      List.forEach (dart:core-patch/growable_array.dart:428)
+#7      LibraryCompiler._emitLibrary (package:dev_compiler/src/kernel/compiler_new.dart:1350)
+#8      LibraryCompiler.emitLibrary (package:dev_compiler/src/kernel/compiler_new.dart:964)
+#9      LibraryBundleCompiler.emitModule (package:dev_compiler/src/kernel/compiler_new.dart:166)
+#10     IncrementalJavaScriptBundler.compile (package:frontend_server/src/javascript_bundle.dart:366)
+#11     FrontendCompiler.writeJavaScriptBundle (package:frontend_server/frontend_server.dart:1127)
+<asynchronous suspension>
+#12     FrontendCompiler.compile (package:frontend_server/frontend_server.dart:904)
+<asynchronous suspension>
+#13     listenAndCompile.<anonymous closure> (package:frontend_server/frontend_server.dart:1702)
+<asynchronous suspension>
+The Dart compiler exited unexpectedly.
+Waiting for connection from debug service on Edge...               18,4s
+Failed to compile application.

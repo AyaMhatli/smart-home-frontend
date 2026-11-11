@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../services/device_service.dart';
 import '../services/summary_service.dart';
+import '../services/home_session.dart';
 import '../themes/app_themes.dart';
+import '../widgets/home_switcher.dart';
 
 /// Écran « Accueil » : résumé de la maison.
 /// Données : services/summary_service.dart et services/device_service.dart.
@@ -21,7 +23,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
+    HomeSession.instance.changes.addListener(_load);
     _load();
+  }
+
+  @override
+  void dispose() {
+    HomeSession.instance.changes.removeListener(_load);
+    super.dispose();
   }
 
   Future<void> _load() async {
@@ -72,6 +81,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       ];
     }
+    final session = HomeSession.instance;
+    if (session.loaded && session.homes.isEmpty) {
+      return const [NoHomeCard()];
+    }
     if (_error != null || _summary == null) {
       return [
         _info(_error ?? 'Aucune donnée'),
@@ -106,6 +119,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const HomeSwitcher(),
+            const SizedBox(height: 12),
             const Text(
               'Bonjour 👋',
               style: TextStyle(
@@ -292,6 +307,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         return Icons.sensor_door_rounded;
       case 'servo':
         return Icons.settings_input_component_rounded;
+      case 'tv':
+        return Icons.tv_rounded;
       default:
         return Icons.sensors_rounded;
     }
