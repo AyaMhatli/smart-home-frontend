@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/device_service.dart';
+import 'package:smart_home/services/device_service.dart';
 import '../services/summary_service.dart';
 import '../services/home_session.dart';
 import '../themes/app_themes.dart';
@@ -13,6 +13,7 @@ class DashboardScreen extends StatefulWidget {
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
+
 
 class _DashboardScreenState extends State<DashboardScreen> {
   HomeSummary? _summary;
@@ -32,7 +33,34 @@ class _DashboardScreenState extends State<DashboardScreen> {
     HomeSession.instance.changes.removeListener(_load);
     super.dispose();
   }
-
+  Future<void> _confirmDelete(Device d) async {
+    final yes = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Supprimer cet appareil ?'),
+        content: Text('« ${d.name} » sera retiré de votre maison.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Annuler')),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('Supprimer'),
+          ),
+        ],
+      ),
+    );
+    if (yes != true) return;
+    try {
+      await DeviceService.instance.deleteDevice(d.id);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('« ${d.name} » supprimé')));
+      _load();
+    } on DeviceServiceException catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
   Future<void> _load() async {
     setState(() {
       _loading = true;
@@ -314,7 +342,82 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
-  Widget _buildDeviceGrid() {
+  // Widget _buildDeviceGrid() {
+  //   if (_devices.isEmpty) {
+  //     return _info("Aucun appareil. Ajoutez-en depuis l'onglet Profil.");
+  //   }
+  //   return GridView.builder(
+  //     shrinkWrap: true,
+  //     physics: const NeverScrollableScrollPhysics(),
+  //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+  //       crossAxisCount: 4,
+  //       mainAxisSpacing: 10,
+  //       crossAxisSpacing: 10,
+  //       childAspectRatio: 1.4,
+  //     ),
+  //     itemCount: _devices.length,
+  //     itemBuilder: (context, index) {
+  //       final d = _devices[index];
+  //       final active = d.online && (d.type == 'door' ? d.isLocked : d.isOn);
+  //       return Container(
+  //         padding: const EdgeInsets.all(14),
+  //         decoration: BoxDecoration(
+  //           color: AppColors.surface,
+  //           borderRadius: BorderRadius.circular(18),
+  //         ),
+  //         child: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Row(
+  //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //               children: [
+  //                 Container(
+  //                   padding: const EdgeInsets.all(8),
+  //                   decoration: BoxDecoration(
+  //                     color: active
+  //                         ? AppColors.primaryBlue.withValues(alpha: 0.15)
+  //                         : AppColors.surfaceLight,
+  //                     borderRadius: BorderRadius.circular(10),
+  //                   ),
+  //                   child: Icon(
+  //                     _iconFor(d),
+  //                     color: active
+  //                         ? AppColors.primaryBlue
+  //                         : AppColors.textSecondary,
+  //                     size: 18,
+  //                   ),
+  //                 ),
+  //                 // Point vert = appareil en ligne
+  //                 Container(
+  //                   width: 4,
+  //                   height: 4,
+  //                   decoration: BoxDecoration(
+  //                     color: d.online
+  //                         ? AppColors.success
+  //                         : AppColors.textSecondary,
+  //                     shape: BoxShape.circle,
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //             Text(
+  //               d.name,
+  //               maxLines: 1,
+  //               overflow: TextOverflow.ellipsis,
+  //               style: const TextStyle(
+  //                 color: AppColors.textPrimary,
+  //                 fontSize: 14,
+  //                 fontWeight: FontWeight.w600,
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+    Widget _buildDeviceGrid() {
     if (_devices.isEmpty) {
       return _info("Aucun appareil. Ajoutez-en depuis l'onglet Profil.");
     }
@@ -322,10 +425,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.4,
+        crossAxisCount: 4,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        childAspectRatio: 1.6,
       ),
       itemCount: _devices.length,
       itemBuilder: (context, index) {
@@ -360,16 +463,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       size: 18,
                     ),
                   ),
-                  // Point vert = appareil en ligne
-                  Container(
-                    width: 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                      color: d.online
-                          ? AppColors.success
-                          : AppColors.textSecondary,
-                      shape: BoxShape.circle,
-                    ),
+                  Row(
+                    children: [
+                      // Point vert = appareil en ligne
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: d.online
+                              ? AppColors.success
+                              : AppColors.textSecondary,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      // Poubelle : supprimer l'appareil
+                      InkWell(
+                        onTap: () => _confirmDelete(d),
+                        borderRadius: BorderRadius.circular(20),
+                        child: const Padding(
+                          padding: EdgeInsets.all(6),
+                          child: Icon(Icons.delete_outline_rounded,
+                              color: Colors.redAccent, size: 20),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -389,4 +507,5 @@ class _DashboardScreenState extends State<DashboardScreen> {
       },
     );
   }
+
 }

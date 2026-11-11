@@ -12,7 +12,9 @@ class AuthService {
 
   // Adresse de ton serveur sur la Pi — adapte l'IP si elle change
   // static const String baseUrl = 'http://192.168.43.27:8000';
-  static const String baseUrl = 'http://0.0.0.0:8000';
+  // static const String baseUrl = 'http://0.0.0.0:8000';
+    static const String baseUrl = 'http://192.168.1.22:8000';
+
 
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
   static const _kAccess = 'access_token';
@@ -87,6 +89,8 @@ class AuthService {
   Future<http.Response> post(String path, [Map<String, dynamic>? body]) =>
       _send('POST', path, body);
 
+
+  Future<http.Response> delete(String path) => _send('DELETE', path);
   Future<http.Response> _send(String method, String path, [Map<String, dynamic>? body]) async {
     Future<http.Response> attempt() async {
       final token = await _storage.read(key: _kAccess);
@@ -95,9 +99,12 @@ class AuthService {
         'Authorization': 'Bearer $token',
       };
       final uri = Uri.parse('$baseUrl$path');
-      return method == 'GET'
-          ? http.get(uri, headers: headers).timeout(_timeout)
-          : http.post(uri, headers: headers, body: jsonEncode(body ?? {})).timeout(_timeout);
+      // return method == 'GET'
+      //     ? http.get(uri, headers: headers).timeout(_timeout)
+      //     : http.post(uri, headers: headers, body: jsonEncode(body ?? {})).timeout(_timeout);
+            if (method == 'GET') return http.get(uri, headers: headers).timeout(_timeout);
+      if (method == 'DELETE') return http.delete(uri, headers: headers).timeout(_timeout);
+      return http.post(uri, headers: headers, body: jsonEncode(body ?? {})).timeout(_timeout);
     }
 
     var res = await attempt();
